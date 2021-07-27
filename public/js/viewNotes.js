@@ -15,38 +15,38 @@ const findMessage = (messages) => {
     for (message in messages) {
         let label = messages[message].label.toLowerCase();
         let note = messages[message];
-        console.log(label)
-        console.log(note)
+        // console.log(label)
+        // console.log(note)
         
         if (label == "school") {
-            renderMessageAsHTML(note,"School")
+            renderMessageAsHTML(note,"school")
         }
         else if (label == "work") {
-            renderMessageAsHTML(note,"Work")
+            renderMessageAsHTML(note,"work")
         }
         else {
-            renderMessageAsHTML(note,"Other")
+            renderMessageAsHTML(note,"other")
         }
         
     };
 };
-
+let cards = {};
 const renderMessageAsHTML = (note, label) => {
     console.log("renderMessageAsHtml running")
     numOfNotes++;
     console.log(numOfNotes)
     // Render messageas HTML
     let i = 0;
-    document.getElementById("column-" + (numOfNotes)).innerHTML = `<article class="message">
+   
+    let noteHTML = `<article class="message">
           <div class="message-header">
             <p id="title-${numOfNotes}">Hello World</p>
             <button class="delete" aria-label="delete"></button>
           </div>
           <div class="message-body" id="note-${numOfNotes}">Note</div>
           <p id="date-${numOfNotes}">Date:</p>
-        </article>`
-
-    console.log("--variable allocation started--")
+        </article>`;
+    document.getElementById("column-" + (label)).innerHTML += noteHTML;
     for (x in note) {
         const noteVal = note[x];
         switch(i){
@@ -63,8 +63,8 @@ const renderMessageAsHTML = (note, label) => {
                 document.getElementById("title-" + (numOfNotes)).innerHTML = noteVal;
                 break;                
         }
-        console.log(i);
-        console.log(noteVal);
+        // console.log(i);
+        // console.log(noteVal);
         i++;
     }
 };

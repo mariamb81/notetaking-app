@@ -8,6 +8,7 @@ window.onload = (event) => {
     if (user) {
       console.log('Logged in as: ' + user.displayName);
       googleUser = user;
+    //   const welcome = document.getElementById("write-header").innerHTML = ("What's on your mind, " + user.displayName + "?");
     //   alert("Hello, " + user.displayName + "!");
       var month = (new Date()).getMonth().toString();
       var year = (new Date()).getFullYear().toString();
